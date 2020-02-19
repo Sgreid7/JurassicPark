@@ -84,9 +84,18 @@ namespace JurassicPark
       View(Dinosaurs);
       Console.WriteLine("---------------------------------------------------------");
       Console.WriteLine("Please choose a new enclosure to put the dinosaur in. Please select a number.");
-      var dinoID = int.Parse(Console.ReadLine());
-      var input = int.Parse(Console.ReadLine());
-      Dinosaurs.First(d => d.ID == dinoID).EnclosureNumber = input;
+      var input = Console.ReadLine();
+      int dinoID;
+      var isNum = int.TryParse(input, out dinoID);
+
+      while (!Dinosaurs.Any(dino => dino.ID == dinoID))
+      {
+        Console.WriteLine("I'm sorry, that is not a valid dinosaur ID.");
+        Console.WriteLine("Please select a dinosaur ID.");
+        dinoID = int.Parse(Console.ReadLine());
+      }
+      var newEnclosure = int.Parse(Console.ReadLine());
+      Dinosaurs.First(d => d.ID == dinoID).EnclosureNumber = newEnclosure;
     }
 
     public void Heaviest()
