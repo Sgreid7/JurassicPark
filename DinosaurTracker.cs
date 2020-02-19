@@ -35,7 +35,16 @@ namespace JurassicPark
       var name = Console.ReadLine();
       Console.WriteLine();
       Console.WriteLine("Please enter a type of diet (herbivore or carnivore)");
-      var diet = Console.ReadLine();
+      var diet = Console.ReadLine().ToLower();
+      Console.WriteLine();
+      // Validate diet
+      while (diet != "herbivore" && diet != "carnivore")
+      {
+        Console.WriteLine("I'm sorry, that is not a valid diet type.");
+        Console.WriteLine("Please enter a type of diet (herbivore or carnivore)");
+        diet = Console.ReadLine().ToLower();
+      }
+
       Console.WriteLine();
       var date = DateTime.Now;
       Console.WriteLine("Please enter the dinosaur's weight:");
@@ -85,6 +94,15 @@ namespace JurassicPark
       Console.WriteLine("You have chosen to view the three heaviest dinosaurs.");
       var topThree = Dinosaurs.OrderByDescending(d => d.Weight).Take(3).ToList();
       View(topThree);
+    }
+
+    public void DietSummary()
+    {
+      Console.WriteLine("You want to view the total number of herbivores and carnivores.");
+      var totalCarnivores = Dinosaurs.Where(dino => dino.Diet == "carnivore").Count();
+      var totalHerbivores = Dinosaurs.Where(dino => dino.Diet == "herbivore").Count();
+      Console.WriteLine($"Total number of carnivores: {totalCarnivores}");
+      Console.WriteLine($"Total number of carnivores: {totalHerbivores}");
     }
   }
 }

@@ -56,7 +56,6 @@ namespace JurassicPark
             break;
 
           case "diet":
-            Console.WriteLine("You want to view the total number of herbivores and carnivores.");
             // Create a method to list the total number of herbivores and carnivores
             break;
 
