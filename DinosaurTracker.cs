@@ -8,10 +8,12 @@ namespace JurassicPark
   {
     public List<Dinosaur> Dinosaurs { get; set; } = new List<Dinosaur>();
 
+    public int UniqueID { get; set; } = 1;
+
     // View dinosaurs
-    public void View()
+    public void View(List<Dinosaur> list)
     {
-      foreach (Dinosaur d in Dinosaurs)
+      foreach (Dinosaur d in list)
       {
         Console.WriteLine("--------------------------------------");
         Console.WriteLine($"Name: {d.Name}");
@@ -19,6 +21,7 @@ namespace JurassicPark
         Console.WriteLine($"Date Acquired: {d.DateAcquired}");
         Console.WriteLine($"Weight: {d.Weight}");
         Console.WriteLine($"Enclosure Number: {d.EnclosureNumber}");
+        Console.WriteLine($"Unique ID: {d.ID}");
         Console.WriteLine("--------------------------------------");
       }
     }
@@ -41,6 +44,7 @@ namespace JurassicPark
       Console.WriteLine("Please enter a number to choose a pen that will store the dinosaur.");
       var enclosure = int.Parse(Console.ReadLine());
       Console.WriteLine();
+
       // Create an instance of dinosaur
       var dinosaur = new Dinosaur
       {
@@ -48,19 +52,39 @@ namespace JurassicPark
         Diet = diet,
         DateAcquired = date,
         Weight = weight,
-        EnclosureNumber = enclosure
+        EnclosureNumber = enclosure,
+        ID = UniqueID
       };
       Dinosaurs.Add(dinosaur);
+      UniqueID++;
     }
 
     public void Remove()
     {
       Console.WriteLine("You have chosen to remove a dinosaur. Please select which dinosaur to remove.");
       Console.WriteLine("Which dinosaur would you like to remove?");
-      View();
-      var input = Console.ReadLine().ToLower();
-      var removeDino = Dinosaurs.First(dino => dino.Name == input);
+      View(Dinosaurs);
+      var input = int.Parse(Console.ReadLine());
+      var removeDino = Dinosaurs.First(dino => dino.ID == input);
       Dinosaurs.Remove(removeDino);
+    }
+
+    public void Transfer()
+    {
+      Console.WriteLine("You have chosen to transfer. Which dinosaur would you like to transfer? Please select the unique ID.");
+      View(Dinosaurs);
+      Console.WriteLine("---------------------------------------------------------");
+      Console.WriteLine("Please choose a new enclosure to put the dinosaur in. Please select a number.");
+      var dinoID = int.Parse(Console.ReadLine());
+      var input = int.Parse(Console.ReadLine());
+      Dinosaurs.First(d => d.ID == dinoID).EnclosureNumber = input;
+    }
+
+    public void Heaviest()
+    {
+      Console.WriteLine("You have chosen to view the three heaviest dinosaurs.");
+      var topThree = Dinosaurs.OrderByDescending(d => d.Weight).Take(3).ToList();
+      View(topThree);
     }
   }
 }

@@ -18,9 +18,10 @@ namespace JurassicPark
         // Add space for readability
         Console.WriteLine();
         Console.WriteLine("Please select one of the options below:");
-        Console.WriteLine("------------------------------------------");
+        Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         // Present the user with different options to choose from
-        Console.WriteLine("(VIEW) all dinosaurs, (ADD) a new dinosaur, (REMOVE) a dinosaur, (TRANSFER) a dinosaur to a new enclosure, (HEAVIEST) to view 3 heaviest dinosaurs, (DIET) to view dinosaur diets, or (QUIT) the program.");
+        Console.WriteLine("(VIEW) all dinosaurs, (ADD) a new dinosaur, (REMOVE) a dinosaur, (TRANSFER) a dinosaur to a new enclosure,");
+        Console.WriteLine("(HEAVIEST) to view the top three heaviest dinosaurs, (DIET) to view dinosaur diets, or (QUIT) the program.");
         // Receive user input
         var input = Console.ReadLine().ToLower();
         // Add a space for readability
@@ -31,7 +32,7 @@ namespace JurassicPark
           case "view":
             Console.WriteLine("You have chosen to view the dinosaurs.");
             // Create a method to view dinosaurs
-            dinoTracker.View();
+            dinoTracker.View(dinoTracker.Dinosaurs);
             break;
 
           case "add":
@@ -40,18 +41,18 @@ namespace JurassicPark
             break;
 
           case "remove":
-            dinoTracker.Remove();
             // Create a method to remove a dinosaur
+            dinoTracker.Remove();
             break;
 
           case "transfer":
-            Console.WriteLine("You have chosen to transfer a dinosaur. Please choose a new enclosure to put the dinosaur in.");
             // Create a method to transfer dinosaurs
+            dinoTracker.Transfer();
             break;
 
           case "heaviest":
-            Console.WriteLine("You have chosen to view the three heaviest dinosaurs.");
             // Create a method to display the top 3 heaviest dinosaurs
+            dinoTracker.Heaviest();
             break;
 
           case "diet":

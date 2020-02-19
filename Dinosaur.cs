@@ -18,5 +18,8 @@ namespace JurassicPark
 
     // Enclosure Pen number
     public int EnclosureNumber { get; set; }
+
+    // Unique ID for dinosaur
+    public int ID { get; set; }
   }
 }
