@@ -57,6 +57,7 @@ namespace JurassicPark
 
           case "diet":
             // Create a method to list the total number of herbivores and carnivores
+            dinoTracker.DietSummary();
             break;
 
           case "quit":

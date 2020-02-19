@@ -102,7 +102,7 @@ namespace JurassicPark
       var totalCarnivores = Dinosaurs.Where(dino => dino.Diet == "carnivore").Count();
       var totalHerbivores = Dinosaurs.Where(dino => dino.Diet == "herbivore").Count();
       Console.WriteLine($"Total number of carnivores: {totalCarnivores}");
-      Console.WriteLine($"Total number of carnivores: {totalHerbivores}");
+      Console.WriteLine($"Total number of herbivores: {totalHerbivores}");
     }
   }
 }
