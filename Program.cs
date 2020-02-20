@@ -30,7 +30,6 @@ namespace JurassicPark
         switch (input)
         {
           case "view":
-            Console.WriteLine("You have chosen to view the dinosaurs.");
             // Create a method to view dinosaurs
             dinoTracker.View(dinoTracker.Dinosaurs);
             break;
