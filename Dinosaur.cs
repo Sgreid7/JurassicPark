@@ -10,13 +10,13 @@ namespace JurassicPark
     // Diet Type
     public string Diet { get; set; }
 
-    // Date dinosaur was acquired
-    public DateTime DateAcquired { get; set; }
+    // Date dinosaur was entered in Jurassic Park
+    public DateTime DateAcquired { get; set; } = DateTime.Now;
 
-    // Weight
+    // Dinosaur weight
     public int Weight { get; set; }
 
-    // Enclosure Pen number
+    // Enclosure Pen number (holding place for dinosaurs)
     public int EnclosureNumber { get; set; }
 
     // Unique ID for dinosaur

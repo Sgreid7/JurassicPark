@@ -25,7 +25,7 @@ namespace JurassicPark
           Console.WriteLine("------------------------------------------------");
           Console.WriteLine($"Name: {d.Name}");
           Console.WriteLine($"Diet Type: {d.Diet}");
-          Console.WriteLine($"Date Acquired: {d.DateAcquired}");
+          Console.WriteLine($"Date Acquired: {d.DateAcquired.ToString("dd MMMM HH:mm")}");
           Console.WriteLine($"Weight: {d.Weight}lbs");
           Console.WriteLine($"Enclosure Number: {d.EnclosureNumber}");
           Console.WriteLine($"Unique ID: {d.ID}");
@@ -60,7 +60,6 @@ namespace JurassicPark
       }
       // Add space for readability
       Console.WriteLine();
-      var date = DateTime.Now;
       Console.WriteLine("Please enter the dinosaur's weight:");
       Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
       var weight = int.Parse(Console.ReadLine());
@@ -77,7 +76,6 @@ namespace JurassicPark
       {
         Name = name,
         Diet = diet,
-        DateAcquired = date,
         Weight = weight,
         EnclosureNumber = enclosure,
         ID = UniqueID
@@ -132,6 +130,8 @@ namespace JurassicPark
       Console.WriteLine("You want to view the total number of herbivores and carnivores.");
       var totalCarnivores = Dinosaurs.Where(dino => dino.Diet == "carnivore").Count();
       var totalHerbivores = Dinosaurs.Where(dino => dino.Diet == "herbivore").Count();
+      // var totalCarnivores = Dinosaurs.Count(dino => dino.Diet == "carnivore");
+      // var totalHerbivores = Dinosaurs.Count(dino => dino.Diet == "herbivore");
       Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
       Console.WriteLine($"Total number of carnivores: {totalCarnivores}");
       Console.WriteLine($"Total number of herbivores: {totalHerbivores}");
