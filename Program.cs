@@ -30,43 +30,34 @@ namespace JurassicPark
         switch (input)
         {
           case "view":
-            // Create a method to view dinosaurs
             dinoTracker.View(dinoTracker.Dinosaurs);
             break;
 
           case "add":
-            // Create a method to add a dinosaur
             dinoTracker.Add();
             break;
 
           case "remove":
-            // Create a method to remove a dinosaur
             dinoTracker.Remove();
             break;
 
           case "transfer":
-            // Create a method to transfer dinosaurs
             dinoTracker.Transfer();
             break;
 
           case "heaviest":
-            // Create a method to display the top 3 heaviest dinosaurs
             dinoTracker.Heaviest();
             break;
 
           case "diet":
-            // Create a method to list the total number of herbivores and carnivores
             dinoTracker.DietSummary();
             break;
 
           case "quit":
             Console.WriteLine("You have chosen to quit the program. Thanks for coming to Jurassic Park, we hope to see you again. Safe travels!");
-            // Switch the isRunning variable to false
             isRunning = false;
             break;
         }
-
-
       }
     }
   }
